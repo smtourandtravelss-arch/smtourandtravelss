@@ -1,0 +1,80 @@
+/* Admin layout A — deep navy sidebar, soft light content, indigo + mint accents */
+:root{
+  --hc-side:#0d1830;--hc-side-2:#13213f;--hc-side-text:#b6c3dd;--hc-side-muted:#6f84ab;--hc-side-line:rgba(255,255,255,.07);
+  --hc-accent:#34d3a4;--hc-primary:#3b6ef5;
+  --hc-bg:#f2f5fb;--hc-card:#fff;--hc-line:#e4e9f3;--hc-text:#16203a;--hc-muted:#66738f;
+}
+.dark{--hc-bg:#0b1020;--hc-card:#131a2e;--hc-line:#212a44;--hc-text:#e8ecf6;--hc-muted:#97a3bd}
+
+body.fi-body,.fi-layout{background:var(--hc-bg)}
+
+/* ---------- dark sidebar ---------- */
+.fi-sidebar.fi-main-sidebar{background:linear-gradient(180deg,var(--hc-side) 0%,var(--hc-side-2) 100%)!important;border:0!important;box-shadow:none!important;color:var(--hc-side-text)}
+@media (min-width:1024px){
+  .fi-sidebar.fi-main-sidebar{position:sticky!important;top:0;height:100vh;width:16rem!important;transform:none!important;inset-inline-start:auto!important;flex:none}
+  .fi-sidebar-close-overlay{display:none!important}
+  .fi-topbar .fi-topbar-open-sidebar-btn,.fi-topbar .fi-topbar-close-sidebar-btn{display:none!important}
+}
+.fi-sidebar-header{background:transparent!important;box-shadow:none!important;border-bottom:1px solid var(--hc-side-line)!important;height:4.25rem}
+.fi-sidebar-header .fi-logo,.fi-sidebar-header a{color:#fff!important}
+.fi-sidebar-header .fi-logo{font-weight:800;letter-spacing:.01em}
+.fi-sidebar-nav{padding:14px 12px 24px!important}
+.fi-sidebar-nav::-webkit-scrollbar{width:6px}.fi-sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:6px}
+
+.fi-sidebar-group-label{color:var(--hc-side-muted)!important;font-size:.7rem!important;letter-spacing:.1em;text-transform:uppercase;font-weight:700!important}
+.fi-sidebar-group-btn .fi-icon,.fi-sidebar-group-collapse-button{color:var(--hc-side-muted)!important}
+.fi-sidebar-group{margin-bottom:6px}
+
+.fi-sidebar-item>a,.fi-sidebar-item-btn{border-radius:10px!important;padding:9px 12px!important;transition:background .15s,color .15s}
+.fi-sidebar-item .fi-sidebar-item-label{color:var(--hc-side-text)!important;font-weight:600}
+.fi-sidebar-item .fi-icon{color:var(--hc-side-muted)!important;transition:color .15s}
+.fi-sidebar-item:hover>a,.fi-sidebar-item:hover .fi-sidebar-item-btn{background:rgba(255,255,255,.06)!important}
+.fi-sidebar-item:hover .fi-sidebar-item-label{color:#fff!important}
+.fi-sidebar-item.fi-active>a,.fi-sidebar-item.fi-active .fi-sidebar-item-btn{background:rgba(52,211,164,.14)!important;box-shadow:inset 3px 0 0 var(--hc-accent)}
+.fi-sidebar-item.fi-active .fi-sidebar-item-label{color:#fff!important;font-weight:700}
+.fi-sidebar-item.fi-active .fi-icon{color:var(--hc-accent)!important}
+.fi-sidebar .fi-badge{background:var(--hc-accent)!important;color:#06281f!important}
+
+/* ---------- top bar ---------- */
+.fi-topbar{background:color-mix(in srgb,var(--hc-card) 88%,transparent)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hc-line);box-shadow:none!important}
+.fi-topbar nav{box-shadow:none!important;background:transparent!important}
+
+/* ---------- page ---------- */
+.fi-main{padding-top:6px}
+.fi-header-heading{font-weight:800;letter-spacing:-.01em;color:var(--hc-text)}
+.fi-breadcrumbs{font-size:.8rem}
+
+/* ---------- cards, sections, tables ---------- */
+.fi-section,.fi-ta-ctn,.fi-wi-stats-overview-stat,.fi-fo-builder-item,.fi-sc-tabs{border-radius:16px!important;border:1px solid var(--hc-line)!important;background:var(--hc-card)!important;box-shadow:0 1px 2px rgba(20,30,60,.04),0 10px 28px rgba(20,30,60,.05)!important;--tw-ring-shadow:0 0 #0000!important;--tw-ring-color:transparent!important}
+.fi-section-header-heading{font-weight:800}
+.fi-ta-header-cell{background:rgba(59,110,245,.05)!important;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+.fi-wi-stats-overview-stat-value{font-weight:800;letter-spacing:-.02em}
+.fi-btn{border-radius:10px!important;font-weight:700}
+.fi-input-wrp,.fi-select-input,.fi-fo-file-upload .filepond--root{border-radius:10px!important}
+.fi-badge{border-radius:999px!important;font-weight:700}
+.fi-modal-window{border-radius:18px!important}
+.fi-fo-builder-block-picker .fi-dropdown-panel{border-radius:14px!important}
+
+/* ---------- sidebar polish (v2): brand header, compact items ---------- */
+.fi-sidebar-header-ctn{background:transparent!important;border-bottom:1px solid var(--hc-side-line)}
+.fi-sidebar-header{background:transparent!important;box-shadow:none!important;border:0!important;height:auto!important;min-height:4.6rem;padding:0 16px!important}
+.fi-sidebar-header-logo-ctn{display:flex;align-items:center;gap:0;min-width:0}
+.fi-sidebar-header-logo-ctn a{display:flex;align-items:center;gap:10px}
+.fi-sidebar-header-logo-ctn img{height:2.5rem!important;width:2.5rem!important;border-radius:12px;background:#fff;padding:3px;object-fit:contain;flex:none}
+.hc-brand{display:flex;flex-direction:column;line-height:1.15;margin-left:10px;min-width:0}
+.hc-brand b{color:#fff;font-size:1rem;font-weight:800;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hc-brand small{color:var(--hc-accent);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.fi-sidebar-nav{padding:12px 12px 24px!important;gap:0!important}
+.fi-sidebar-nav ul{gap:2px!important}
+.fi-sidebar-group{margin-top:10px;margin-bottom:0}
+.fi-sidebar-group-btn{padding:6px 10px!important}
+.fi-sidebar-item>a,.fi-sidebar-item-btn{padding:8px 12px!important;gap:12px!important;min-height:0}
+.fi-sidebar-item .fi-sidebar-item-label{font-size:.875rem!important;font-weight:600!important}
+.fi-sidebar-item .fi-icon{width:1.15rem!important;height:1.15rem!important}
+.fi-sidebar-item.fi-active>a,.fi-sidebar-item.fi-active .fi-sidebar-item-btn{background:linear-gradient(90deg,rgba(52,211,164,.2),rgba(52,211,164,.06))!important}
+
+@media (min-width:1024px){
+  .fi-sidebar-header-logo-ctn{display:flex!important}
+  .fi-sidebar-header{display:flex!important;align-items:center}
+  .fi-topbar .fi-logo,.fi-topbar [class*="logo"],.fi-topbar a[href$="/admin"]{display:none!important}
+}

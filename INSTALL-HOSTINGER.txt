@@ -1,0 +1,154 @@
+=====================================================================
+  SM CAB SERVICE WEBSITE (Taxi Service in Dehradun)
+  Laravel + Filament Admin — HOSTINGER INSTALL
+  Bina SSH ke, sirf File Manager + browser se.
+=====================================================================
+
+ZAROORI (pehle check karein)
+---------------------------------------------------------------------
+  • Hostinger hPanel → Advanced → PHP Configuration → PHP 8.3 (ya 8.4)
+  • Same page → PHP Extensions: intl, pdo_mysql, fileinfo, mbstring
+    ON hone chahiye (Hostinger par aam taur par pehle se ON hote hain)
+
+
+STEP 1 — DATABASE BANAYEIN
+---------------------------------------------------------------------
+  hPanel → Databases → MySQL Databases → "Create a New MySQL Database"
+    - Database name   (jaise u123456789_smcab)
+    - Username        (jaise u123456789_admin)
+    - Password        (strong password — note kar lein)
+  Ye teeno details Step 4 mein chahiye.
+
+
+STEP 2 — public_html KHALI KAREIN
+---------------------------------------------------------------------
+  Agar domain par pehle se koi website hai to uska backup le lein
+  (File Manager → saari files select → Compress → download),
+  phir public_html KHALI kar dein.
+  GitHub se deploy: hPanel → Advanced → Git → repository
+  https://github.com/smtourandtravelss-arch/smtourandtravelss , branch main,
+  folder khali chhodein → Create → Deploy. (Tab Step 3 skip karein.)
+
+
+STEP 3 — NAYI FILES UPLOAD KAREIN
+---------------------------------------------------------------------
+  File Manager → public_html → Upload → smcabservice-website.zip
+  ZIP par right-click → Extract → "." (yahi folder) chunein.
+  Extract ke baad public_html ke andar ye dikhna chahiye:
+      app  bootstrap  config  database  public  resources  routes
+      storage  vendor  .htaccess  .env  artisan ...
+  (Agar sab ek extra folder ke andar aa gaya ho, to us folder ki saari
+   files public_html mein MOVE kar dein.)
+  ZIP file ko delete kar dein.
+
+  NOTE: .env aur .htaccess "hidden files" hain. File Manager mein
+  Settings → "Show hidden files" ON karein.
+
+
+STEP 4 — INSTALLER CHALAYEIN
+---------------------------------------------------------------------
+  Browser mein kholiye:   https://www.yourdomain.com/install
+    1. Server check — sab ✔ green hona chahiye
+    2. Database host = localhost, Port = 3306,
+       Database name / username / password = Step 1 wale
+    3. Website URL — apne aap aa jayega (https://... check kar lein)
+    4. Admin naam, email, password (min 8 characters) — yaad rakhein!
+  "Install Website" dabayein. 1 minute mein ho jayega.
+  Installer apne aap:
+    ✔ saari tables banata hai
+    ✔ SM Cab Service ka saara text, pages, cabs, 2 sample blog posts daalta hai
+    ✔ admin login banata hai aur khud ko LOCK kar deta hai
+
+
+STEP 5 — ADMIN PANEL
+---------------------------------------------------------------------
+  https://www.yourdomain.com/admin   → email + password se login
+
+  Sabse pehle ye karein:
+    a) Settings → Site Settings → "Email / SMTP"
+         Gmail: smtp.gmail.com · 465 · SSL · username = poora Gmail
+                password = 16-letter App Password (normal password
+                kaam nahi karega). Google Account → Security →
+                2-Step Verification ON → App passwords.
+         Hostinger email: smtp.hostinger.com · 465 · SSL ·
+                username = poora email · password = email ka password
+       "Send test email" dabakar check karein → phir "Save settings".
+    b) Phone, WhatsApp, Email — "Phone, WhatsApp & Email" tab.
+       Email abhi KHALI hai: apna email aur "Send enquiries to" email
+       zaroor bharein, warna enquiry ka email nahi aayega (enquiry
+       admin → Enquiries mein phir bhi save hoti hai).
+    c) Tracking codes (GTM / GA4 / Google Ads) — "Tracking Codes" tab.
+    d) Ek test enquiry bhejein → Admin → Enquiries mein dikhni chahiye.
+
+
+ADMIN PANEL MEIN KYA-KYA HAI
+---------------------------------------------------------------------
+  Dashboard ............ aaj ki / naye enquiries, average SEO score
+  Website → Pages ...... har page edit + NAYE PAGE banaiye (Page Builder)
+                         + SEO tab: focus keyword, title, description,
+                         Google preview, SEO SCORE (0-100) live
+  Website → Services ... service cards add / edit / photo / order (drag)
+  Website → Media ...... koi bhi photo / PDF upload → link copy
+  Enquiries ............ saari form entries, status (New/Called/...),
+                         notes, Call / WhatsApp button, Excel (CSV) export
+  Settings → Site Settings ... business, logo, phone, WhatsApp, email,
+                         menu, footer, colours, buttons, popup, floating
+                         buttons, form fields, SMTP, tracking, Google SEO
+  Settings → System & Database ... "Update database" button,
+                         Clear cache, Backup download
+  Settings → Admin users ... aur admin add karein / password badlein
+
+
+NAYA PAGE KAISE BANAYEIN (jaise "Dehradun to Nainital Taxi")
+---------------------------------------------------------------------
+  Pages → New page → Page name likhein (URL apne aap banega)
+  Design = "Page Builder" → "Add a section" se sections jodein:
+    Banner + Booking Form · Trust Badges · Service Tiles · One Way /
+    Round Trip Cards · Popular Routes · Cab Cards · Why Choose Us
+    Customer Reviews · FAQ · Trust Factor · Yellow CTA · Photo + Text Rows
+    Contact + Map · Booking Form · Numbers · Gallery · Video · HTML ...
+  Cab / fare badalna ho: Cabs & Fares → card kholein → naam, seats, fare.
+  Ads ke liye naya landing page: Pages → Home ki list me "Copy" dabayein,
+       naam/URL badlein (jaise dehradun-to-nainital-taxi), heading/text badlein.
+  SEO tab → focus keyword + title + description → score 80+ ka target.
+  Save → "View page".
+  Menu mein dikhana ho to: Site Settings → Header & Menu → Add link.
+
+
+BLOG POST KAISE LIKHEIN
+---------------------------------------------------------------------
+  Website → Blog Posts → 2 sample posts pehle se bane hain:
+    /dehradun-to-mussoorie-taxi-guide.php
+    /char-dham-yatra-taxi-from-dehradun.php
+  Naya post: kisi sample post par "Copy" dabayein (format wahi rahega)
+  ya "New post" banayein, phir:
+    • Title + URL (jaise kedarnath-taxi-from-dehradun)
+    • Featured image (blog list mein photo) + Excerpt (2 line summary)
+    • Sections: Long Text (article: headings, list, table, link)
+                FAQ (sawal-jawab, Google FAQ schema apne aap)
+                Cab Cards (post ke neeche booking cards)
+    • SEO tab: focus keyword, title, description → score 80+
+  Save → post /blogs.php par sabse upar dikhega.
+  Sample posts na chahiye to unhe Draft ya delete kar dein.
+
+
+AAGE CHAL KAR UPDATE (naya version aaye to)
+---------------------------------------------------------------------
+  1. Admin → System & Database → "Download backup"
+  2. Nayi files upload karein — .env file aur public/uploads folder ko
+     REPLACE NA karein
+  3. Admin → System & Database → "Update database" → "Clear cache"
+
+
+PROBLEM AAYE TO
+---------------------------------------------------------------------
+  • 500 error / blank page → hPanel mein PHP 8.3 select hai?
+    storage aur bootstrap/cache folders ki permission 755 karein.
+  • /install dobara chalana ho → storage/app/installed.lock delete karein
+    (dhyan dein: installer purana data delete nahi karta).
+  • Email nahi aa raha → Site Settings → Email / SMTP → "Send test email"
+    jo error dikhaye wahi theek karein. Enquiries phir bhi admin mein
+    save hoti rehti hain.
+  • Admin password bhool gaye → login page par "Forgot password?"
+    (SMTP set hona chahiye) ya doosre admin se reset karwayein.
+=====================================================================
